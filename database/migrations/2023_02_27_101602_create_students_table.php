@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string("student_id")->nullable();
             $table->string("name")->nullable();
-            $table->string("description")->nullable();
+            $table->string("gender")->nullable();
+            $table->date("date_of_birth")->nullable();
+            $table->string("father_name")->nullable();
+            $table->string("mother_name")->nullable();
+            $table->string("other")->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('students');
     }
 };
